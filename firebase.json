@@ -3,6 +3,7 @@
     "rules": "firestore.rules"
   },
   "hosting": {
+    "site": "isla-glass",
     "public": "out",
     "ignore": [
       "firebase.json",
