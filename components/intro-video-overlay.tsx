@@ -175,6 +175,18 @@ export default function IntroVideoOverlay() {
     }, 950);
   }
 
+  function skipIntro() {
+    const video = videoRef.current;
+
+    void trackEvent("intro_skipped", {
+      orientation: orientation ?? "unknown",
+      sound_on: video ? String(!video.muted) : "unknown",
+      playback_seconds: video ? Math.round(video.currentTime) : 0,
+    });
+
+    dismissIntro();
+  }
+
   async function toggleSound() {
     const video = videoRef.current;
 
@@ -340,6 +352,16 @@ export default function IntroVideoOverlay() {
         {soundOn ? <SpeakerOnIcon /> : <SpeakerOffIcon />}
       </button>
 
+      <button
+        type="button"
+        onClick={skipIntro}
+        disabled={phase !== "visible"}
+        className="absolute bottom-5 right-5 z-[2] inline-flex items-center gap-3 rounded-full border border-white/18 bg-[rgba(28,34,66,0.48)] px-5 py-3 font-subtitle text-[0.7rem] uppercase tracking-[0.22em] text-white shadow-[0_20px_40px_rgba(0,0,0,0.22)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-[rgba(28,34,66,0.62)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white disabled:pointer-events-none sm:bottom-6 sm:right-6"
+      >
+        <SkipForwardIcon className="size-4" />
+        Skip intro
+      </button>
+
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(66,131,209,0.24),transparent_42%),linear-gradient(180deg,rgba(28,34,66,0.16),rgba(28,34,66,0.34))]" />
 
       {source ? (
@@ -474,6 +496,22 @@ function SpeakerOffIcon({ className = "h-5 w-5" }: { className?: string }) {
       <path d="M4 14h4l5 4V6L8 10H4z" />
       <path d="M17 9a5 5 0 0 1 0 6" />
       <path d="M6 6l12 12" />
+    </svg>
+  );
+}
+
+function SkipForwardIcon({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className={`${className} fill-none stroke-current`}
+      strokeWidth="1.9"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="m5 6 10 6-10 6z" />
+      <path d="M19 6v12" />
     </svg>
   );
 }

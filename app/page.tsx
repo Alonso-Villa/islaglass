@@ -21,7 +21,7 @@ export default function Home() {
       <main className="relative isolate overflow-hidden">
         <IntroVideoOverlay />
         <div className="pointer-events-none absolute inset-0 current-grid opacity-70" />
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[40rem] bg-[radial-gradient(circle_at_top,rgba(66,131,209,0.24),transparent_55%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-160 bg-[radial-gradient(circle_at_top,rgba(66,131,209,0.24),transparent_55%)]" />
         <div className="pointer-events-none absolute -left-24 top-24 size-80 rounded-full bg-[rgba(66,131,209,0.16)] blur-3xl animate-drift" />
         <div
           className="pointer-events-none absolute -right-16 top-40 size-96 rounded-full bg-[rgba(176,186,163,0.2)] blur-3xl animate-drift"
@@ -34,7 +34,7 @@ export default function Home() {
             <HeroBackgroundSlideshow />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,24,48,0.22)_0%,rgba(24,30,58,0.12)_28%,rgba(255,255,255,0.28)_72%,rgba(255,255,255,0.58)_100%)]" />
           </div>
-          <div className="pointer-events-none absolute inset-0 z-[1] hero-signal-overlay">
+          <div className="pointer-events-none absolute inset-0 z-1 hero-signal-overlay">
             <div className="absolute inset-0 hero-signal-panel" />
             <div className="absolute inset-0 shimmer-sweep opacity-72" />
           </div>
@@ -105,7 +105,7 @@ export default function Home() {
                     key={`${item}-${index}`}
                     className="font-subtitle flex items-center gap-4 whitespace-nowrap px-2 text-xs uppercase tracking-[0.3em] text-[rgba(28,34,66,0.68)]"
                   >
-                    <span className="size-1.5 rounded-full bg-[var(--sea)]" />
+                    <span className="size-1.5 rounded-full bg-(--sea)" />
                     {item}
                   </div>
                 ))}
@@ -126,7 +126,7 @@ export default function Home() {
                   width={1903}
                   height={1215}
                   sizes="(max-width: 768px) 70vw, 280px"
-                  className="h-auto w-full max-w-[15rem]"
+                  className="h-auto w-full max-w-60"
                 />
                 <p className="mt-6 max-w-xl text-base leading-8 text-[rgba(28,34,66,0.74)]">
                   Coastal living inspired design and quality for impact-rated
@@ -151,7 +151,7 @@ export default function Home() {
                         method: "email",
                         source_location: "footer",
                       }}
-                      className="inline-flex items-center justify-center rounded-full bg-[var(--deep-sea)] px-5 py-3 text-sm font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5"
+                      className="inline-flex items-center justify-center rounded-full bg-(--deep-sea) px-5 py-3 text-sm font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5"
                     >
                       eli@islaglass.com
                     </TrackedLink>
@@ -164,7 +164,7 @@ export default function Home() {
                         method: "whatsapp",
                         source_location: "footer",
                       }}
-                      className="inline-flex items-center justify-center gap-2.5 rounded-full border border-[rgba(28,34,66,0.12)] bg-white/80 px-5 py-3 text-sm font-semibold text-[var(--deep-sea)] transition-transform duration-300 hover:-translate-y-0.5"
+                      className="inline-flex items-center justify-center gap-2.5 rounded-full border border-[rgba(28,34,66,0.12)] bg-white/80 px-5 py-3 text-sm font-semibold text-(--deep-sea) transition-transform duration-300 hover:-translate-y-0.5"
                     >
                       <Image
                         src="/whatsapp.png"
@@ -182,10 +182,11 @@ export default function Home() {
 
                 <div>
                   <p className="font-subtitle text-2xl uppercase tracking-[0.24em] text-[rgba(28,34,66,0.5)]">
-                    Location
+                    Locations
                   </p>
-                  <p className="mt-4 text-lg leading-7 text-[var(--deep-sea)]">
-                    Cape Coral, FL.
+                  <p className="mt-4 text-lg leading-7 text-(--deep-sea)">
+                    South Florida & Florida Keys.
+                    SWFL & Lee Island Coast
                   </p>
                   <p className="mt-3 text-sm leading-7 text-[rgba(28,34,66,0.72)]">
                     Designed around coastal living and built for projects that
@@ -198,7 +199,7 @@ export default function Home() {
                     <p className="font-subtitle text-2xl uppercase tracking-[0.24em] text-[rgba(28,34,66,0.5)]">
                       Copyright
                     </p>
-                    <p className="mt-4 text-lg leading-7 text-[var(--deep-sea)]">
+                    <p className="mt-4 text-sm leading-7 text-(--deep-sea)">
                       © 2026 Isla Glass. All rights reserved.
                     </p>
                   </div>

@@ -31,6 +31,13 @@ html {
     linear-gradient(180deg, #f1f6fd 0%, #ffffff 44%, #f6f8f3 100%);
 }
 
+/* Match the preferred 80% desktop scale without shrinking mobile text. */
+@media (min-width: 64rem) {
+  html {
+    font-size: 80%;
+  }
+}
+
 body {
   background:
     radial-gradient(circle at 12% 12%, rgba(66, 131, 209, 0.18), transparent 24%),
