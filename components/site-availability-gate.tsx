@@ -1,6 +1,5 @@
 "use client";
 
-import TrackedLink from "@/components/tracked-link";
 import {
   setAnalyticsUserProperties,
   trackEvent,
@@ -23,11 +22,12 @@ const WHATSAPP_CONTACT_URL = "https://wa.me/17867100565";
 
 function AvailabilityShell({ children }: { children: React.ReactNode }) {
   return (
-    <main className="relative isolate min-h-screen overflow-hidden bg-[linear-gradient(180deg,#1c2242_0%,#25335b_48%,#eff4fb_100%)] text-white">
+    <main className="relative isolate min-h-dvh overflow-hidden bg-[linear-gradient(180deg,#1c2242_0%,#25335b_48%,#eff4fb_100%)] text-white">
       <div className="pointer-events-none absolute inset-0 current-grid opacity-25" />
+
       <div className="pointer-events-none absolute left-1/2 top-24 h-72 w-72 -translate-x-1/2 rounded-full bg-[rgba(66,131,209,0.22)] blur-3xl" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-72 bg-[radial-gradient(circle_at_bottom,rgba(255,255,255,0.35),transparent_68%)]" />
-      <div className="relative z-10 flex min-h-screen items-center justify-center px-6 py-14 sm:px-8">
+
+      <div className="relative z-10 flex min-h-dvh items-center justify-center px-6 py-14 sm:px-8">
         {children}
       </div>
     </main>
@@ -48,7 +48,7 @@ function LoadingState() {
           className="h-auto w-full max-w-xs sm:max-w-sm"
         />
         <p className="font-subtitle mt-8 text-xs uppercase tracking-[0.32em] text-white/70">
-          Checking website availability
+          Loading...
         </p>
         <div className="mt-5 h-px w-40 overflow-hidden rounded-full bg-white/20">
           <div className="h-full w-full animate-[shimmer_1.6s_linear_infinite] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.95),transparent)]" />
@@ -61,15 +61,15 @@ function LoadingState() {
 function InactiveState({ reason }: { reason: InactiveReason }) {
   return (
     <AvailabilityShell>
-      <div className="w-full max-w-3xl rounded-[2.25rem] border border-white/12 bg-[rgba(18,24,48,0.52)] px-7 py-10 shadow-[0_28px_90px_rgba(8,12,28,0.24)] backdrop-blur-xl sm:px-10 sm:py-12">
+      <div className="w-full max-w-3xl rounded-[2.25rem] border border-white/12 bg-[rgba(18,24,48,0.52)] px-7 py-10 shadow-[0_28px_90px_rgba(8,12,28,0.24)] backdrop-blur-sm sm:px-10 sm:py-12">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="font-subtitle text-xs uppercase tracking-[0.32em] text-white/58">
+          {/* <p className="font-subtitle text-xs uppercase tracking-[0.32em] text-white/58">
             Website unavailable
-          </p>
+          </p> */}
           <h1 className="mt-5 font-display text-5xl leading-[0.92] tracking-[-0.03em] text-white sm:text-6xl">
             This website is currently offline.
           </h1>
-          <p className="mt-6 text-base leading-8 text-white/78 sm:text-lg">
+          {/* <p className="mt-6 text-base leading-8 text-white/78 sm:text-lg">
             Isla Glass is temporarily unavailable. For more information
             contact the team directly through WhatsApp.
           </p>
@@ -103,7 +103,7 @@ function InactiveState({ reason }: { reason: InactiveReason }) {
                 className="h-auto w-full max-w-[15rem] sm:max-w-[18rem]"
               />
             </TrackedLink>
-          </div>
+          </div> */}
         </div>
       </div>
     </AvailabilityShell>
